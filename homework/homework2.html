@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+  <title>원클릭 쇼핑몰</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    * {
+      font-family: 'Nanum Myeongjo', serif;
+    }
+
+    .cardhead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .wrap {
+      width: 600px;
+      margin: 50px auto 50px auto;
+    }
+
+    .btn {
+      margin: 0px auto 0px 125px;
+    }
+  </style>
+
+  <script>
+    function order() {
+      let name = $('#input-name').val();
+      let Groupselect = $('#input-Group').val();
+      let adress = $('#input-adress').val();
+      let number = $('#input-number').val();
+
+      if (name == '') {
+        alert('이름을 입력해주세요!');
+        $('#input-name').focus();
+        return name;
+
+      } else if (Groupselect == '') {
+        alert('수량을 선택해주세요!');
+        $('#input-Group').focus();
+        return Groupselect;
+
+      } else if (adress == '') {
+        alert('주소를 입력해주세요!');
+        $('#input-adress').focus();
+        return adress;
+
+      } else if (number == '') {
+        alert('전화번호를 입력해주세요!');
+        $('#input-number').focus();
+        return number;
+      }
+    }
+
+    function order_remove() {
+      $('#Formlist').empty('');
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="cardhead">
+      <img
+        src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2520CF4753E942C332"
+        width="400px" />
+      <p></p>
+    </div>
+    <div class="content">
+      <h1 style="display:inline">중고책 판매합니다</h1>
+      <h5 style="display:inline">가격 : 6000원 / 최대 5권 </h5>
+      <p class="card-text">책의 장르와 두께 상관없이 랜덤으로 책을 보내드립니다. 다양한 책을 저렴한 가격으로 만나보세요. 상품 특성 상 원하는 책을 받을 수 있다고 확답드리기 어렵습니다.
+        파본의 경우 문의 게시판을 사용해주시기 바랍니다.</p>
+      <p></p>
+    </div>
+
+    <div class="whole">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"> 주문자 이름 </span>
+        </div>
+        <input id="input-name" type="text" class="form-control" placeholder="" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select class="custom-select" id="input-Group">
+          <option selected value>--수량을 선택하세요.--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"> 주소 </span>
+        </div>
+        <input id="input-adress" type="text" class="form-control" placeholder="" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"> 전화번호 </span>
+        </div>
+        <input id="input-number" type="text" class="form-control" placeholder="" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class=btn>
+        <button onclick="order()" type="button" class="btn btn-primary">주문하기</button>
+        <button onclick="order_remove()" type="button" class="btn btn-primary">주문취소</button>
+        <ul id="Formlist">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
